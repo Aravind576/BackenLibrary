@@ -32,13 +32,9 @@ namespace BackendLibrary.Services
                 var library = _Library.Find(key => key.id == bookid).FirstOrDefault();
                 library.Ratings = ratings;
                 _Library.ReplaceOne(Key => Key.id == bookid, library);
-                //_Library.UpdateOne(
-                //    (Key => Key.id == bookid)
-                //    , 
-                //    ating: ratings 
-                //);
-                //db.student.updateOne({ name: "Annu"}, {$set: { age: 25} })
+                
             }
+            
         }
         public void delete(string bookid)
         {

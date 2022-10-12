@@ -14,6 +14,20 @@ builder.Services.AddSingleton<IMongoClient>(s =>
         new MongoClient(builder.Configuration.GetValue<string>("MyLibrarydatabaseSettings:ConnectionString")));
 
 builder.Services.AddScoped<ILibraryServices, LibraryServices>();
+//..............................................................................................................
+
+
+builder.Services.Configure<LoginCredentialsSettings>(
+                builder.Configuration.GetSection(nameof(LoginCredentialsSettings)));
+
+builder.Services.AddSingleton<ILoginCredentialsSettings>(sp =>
+    sp.GetRequiredService<IOptions<LoginCredentialsSettings>>().Value);
+
+builder.Services.AddSingleton<IMongoClient>(s =>
+        new MongoClient(builder.Configuration.GetValue<string>("LoginCredentialsSettings:ConnectionString")));
+
+builder.Services.AddScoped<ILoginAuthentications, LoginAuthentcations>();
+
 // Add services to the container.
 
 builder.Services.AddControllers();

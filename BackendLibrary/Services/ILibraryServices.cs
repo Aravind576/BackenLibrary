@@ -8,7 +8,7 @@ namespace BackendLibrary.Services
         List<MyLibrary> Get(string bookId);
         void edit(string bookid, double ratings);
         void delete(string bookid);
-        void add(string bookname,)
+        
         
     }
 }

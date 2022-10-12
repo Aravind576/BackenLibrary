@@ -7,7 +7,7 @@ namespace BackendLibrary.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public String id { get; set; }
+        public String? id { get; set; }
         [BsonElement("Authorname")]
         public String? AuthorName { get; set; }
         [BsonElement("bookname")]
