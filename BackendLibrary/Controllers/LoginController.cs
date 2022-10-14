@@ -15,7 +15,7 @@ namespace BackendLibrary.Controllers
         {
             _LoginCredentials = loginAuthentications;
         }
-        // GET: api/<LoginController>
+        
         [HttpGet]
         [Route("Signup /{username}/{password}")]
         public LoginCredentials? SignUp(string username,string password)

@@ -11,6 +11,12 @@ namespace BackendLibrary.Services
             var _database = mongoClient.GetDatabase(settings.LoginCredentialsDatabaseName);
             _Login = _database.GetCollection<LoginCredentials>(settings.DatabaseCollectionsName);
         }
+        /// <summary>
+        /// method to check the login credentials
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public LoginCredentials? SignUp(string username, string password)
         {
             var tempUsername=_Login.Find(key=>key.Username == username).FirstOrDefault();
